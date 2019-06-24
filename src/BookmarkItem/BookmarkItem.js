@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import './BookmarkItem.css';
@@ -28,7 +29,7 @@ function deleteBookmarkRequest(bookmarkId, cb){
       cb(bookmarkId)
     })
     .catch(error => {
-      console.error(error)
+      console.log(error);
     })
 }
 
@@ -58,6 +59,7 @@ export default function BookmarkItem(props) {
         >
           Delete
         </button>
+        <Link to={`/edit-bookmark/${props.id}`}>Edit Bookmark</Link>
       </div>
     </li>
   )}
